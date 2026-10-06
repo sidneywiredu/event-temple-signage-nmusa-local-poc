@@ -1,0 +1,453 @@
+:root {
+    --bg: #000;
+    --panel: #080808;
+    --text: #f7f7f7;
+    --muted: #a9a9a9;
+    --line: rgba(255, 255, 255, .14);
+    --accent: #FFCC01;
+    --accent-soft: rgba(255, 204, 1, .14);
+    --good: #65d49b;
+    --bad: #ff8f8f
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%
+}
+
+body {
+    background: #000;
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif
+}
+
+.prototype-toolbar {
+    position: fixed;
+    z-index: 20;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    background: rgba(0, 0, 0, .94);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .32);
+    backdrop-filter: blur(14px)
+}
+
+.prototype-toolbar button {
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    padding: 9px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.prototype-toolbar button:hover {
+    color: #fff
+}
+
+.prototype-toolbar button.active {
+    background: var(--accent);
+    color: #17120a
+}
+
+.prototype-toolbar .label {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #7e90a4;
+    padding-left: 8px
+}
+
+.signage-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 2.1vh;
+    padding: 9vh 3.4vw 2.5vh;
+    background: #000
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid var(--line)
+}
+
+.brand-block {
+    display: flex;
+    align-items: center;
+    gap: 1.2vw
+}
+
+.brand-mark {
+    width: clamp(86px, 7.2vw, 138px);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.brand-mark img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 112px;
+    object-fit: contain
+}
+
+.eyebrow {
+    margin: 0 0 .4vh;
+    color: var(--accent);
+    letter-spacing: .19em;
+    font-size: clamp(12px, .9vw, 18px);
+    font-weight: 700
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(30px, 3vw, 58px);
+    font-weight: 650;
+    letter-spacing: -.02em
+}
+
+.clock-block {
+    text-align: right
+}
+
+#clock {
+    font-size: clamp(34px, 3vw, 60px);
+    font-weight: 300;
+    letter-spacing: .02em
+}
+
+#dateLabel {
+    color: var(--muted);
+    font-size: clamp(14px, 1.1vw, 22px);
+    margin-top: .2vh
+}
+
+.current-panel {
+    background: linear-gradient(100deg, rgba(255, 204, 1, .16), rgba(255, 204, 1, .04));
+    border: 1px solid rgba(255, 204, 1, .44);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 1.8vw;
+    padding: 1.7vh 1.5vw
+}
+
+.status-pill {
+    flex: 0 0 auto;
+    color: #17120a;
+    background: var(--accent);
+    font-weight: 800;
+    padding: .8vh .8vw;
+    border-radius: 999px;
+    letter-spacing: .08em;
+    font-size: clamp(11px, .75vw, 15px)
+}
+
+.current-copy h2 {
+    margin: 0;
+    font-size: clamp(22px, 2vw, 40px)
+}
+
+.current-copy p {
+    margin: .45vh 0 0;
+    color: #d8e1eb;
+    font-size: clamp(14px, 1.05vw, 21px)
+}
+
+.dot {
+    margin: 0 .65em;
+    color: var(--accent)
+}
+
+.schedule-area {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 2.25fr) minmax(300px, .85fr);
+    gap: 1.5vw;
+    align-items: start
+}
+
+.schedule-section,
+.tomorrow-section {
+    min-height: 0;
+    display: flex;
+    flex-direction: column
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.2vh
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(22px, 1.65vw, 32px)
+}
+
+.section-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(13px, .9vw, 18px)
+}
+
+.table-card,
+.tomorrow-card {
+    background: rgba(8, 8, 8, .94);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(8px)
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 1.25fr 3fr 2fr 1fr;
+    gap: 1.4vw;
+    align-items: center;
+    padding: 1.45vh 1.4vw;
+    border-bottom: 1px solid var(--line)
+}
+
+.schedule-row:last-child {
+    border-bottom: 0
+}
+
+.schedule-head {
+    color: var(--muted);
+    text-transform: uppercase;
+    font-size: clamp(10px, .72vw, 14px);
+    font-weight: 700;
+    letter-spacing: .12em;
+    padding-top: 1.1vh;
+    padding-bottom: 1.1vh
+}
+
+.schedule-item {
+    min-height: 8vh
+}
+
+.schedule-item .time {
+    font-size: clamp(17px, 1.35vw, 27px);
+    font-weight: 650
+}
+
+.event-name {
+    font-size: clamp(19px, 1.65vw, 32px);
+    font-weight: 600
+}
+
+.room {
+    color: #d9e4ef;
+    font-size: clamp(15px, 1.05vw, 21px)
+}
+
+.attendees {
+    display: inline-flex;
+    align-items: center;
+    gap: .35em;
+    color: var(--accent);
+    font-weight: 700;
+    white-space: nowrap
+}
+
+.attendees svg {
+    width: 1.05em;
+    height: 1.05em;
+    fill: currentColor
+}
+
+.room-sep {
+    margin: 0 15px;
+    color: #FFCC01
+}
+
+.badge {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    padding: .65vh .72vw;
+    border-radius: 999px;
+    font-size: clamp(10px, .72vw, 14px);
+    font-weight: 800;
+    letter-spacing: .05em
+}
+
+.badge.upcoming {
+    background: rgba(101, 212, 155, .12);
+    color: #8ce5b4;
+    border: 1px solid rgba(101, 212, 155, .3)
+}
+
+.badge.now {
+    background: var(--accent-soft);
+    color: #ffe16a;
+    border: 1px solid rgba(255, 204, 1, .42)
+}
+
+.badge.complete {
+    background: rgba(255, 255, 255, .05);
+    color: #7e90a4;
+    border: 1px solid rgba(255, 255, 255, .08)
+}
+
+.schedule-item.past {
+    opacity: .43
+}
+
+.schedule-item.current {
+    background: rgba(255, 204, 1, .07);
+    box-shadow: inset 4px 0 0 var(--accent)
+}
+
+.tomorrow-item {
+    padding: 1.45vh 1.2vw;
+    border-bottom: 1px solid var(--line)
+}
+
+.tomorrow-item:last-child {
+    border-bottom: 0
+}
+
+.tomorrow-time {
+    color: var(--accent);
+    font-size: clamp(14px, 1vw, 19px);
+    font-weight: 800;
+    margin-bottom: .45vh
+}
+
+.tomorrow-name {
+    font-size: clamp(17px, 1.25vw, 24px);
+    font-weight: 650;
+    line-height: 1.2
+}
+
+.tomorrow-room {
+    color: var(--muted);
+    font-size: clamp(13px, .9vw, 17px);
+    margin-top: .55vh
+}
+
+.tomorrow-empty {
+    padding: 2.2vh 1.2vw;
+    color: var(--muted);
+    text-align: center
+}
+
+.empty-state {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    text-align: center;
+    color: var(--muted);
+    min-height: 38vh
+}
+
+.empty-icon {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(101, 212, 155, .12);
+    color: var(--good);
+    font-size: 32px;
+    margin-bottom: 1vh
+}
+
+.empty-state h3 {
+    color: var(--text);
+    margin: .5vh 0;
+    font-size: 28px
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 18px
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: clamp(11px, .82vw, 16px);
+    padding-top: .5vh
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--good);
+    display: inline-block;
+    margin-right: .55em;
+    box-shadow: 0 0 12px rgba(101, 212, 155, .7)
+}
+
+.live-dot.error {
+    background: var(--bad);
+    box-shadow: none
+}
+
+.hidden {
+    display: none !important
+}
+
+@media(max-width:1100px) {
+    .schedule-area {
+        grid-template-columns: 1fr
+    }
+
+    .tomorrow-section {
+        margin-top: .5vh
+    }
+}
+
+@media(max-width:900px) {
+    .prototype-toolbar {
+        width: calc(100% - 20px);
+        overflow-x: auto;
+        justify-content: flex-start;
+        border-radius: 16px
+    }
+
+    .signage-shell {
+        padding-top: 11vh
+    }
+
+    .schedule-row {
+        grid-template-columns: 1.15fr 2.3fr 1.5fr
+    }
+
+    .schedule-row>:last-child {
+        display: none
+    }
+
+    .brand-mark {
+        min-width: 48px
+    }
+
+    .topbar {
+        align-items: flex-end;
+        gap: 16px
+    }
+}

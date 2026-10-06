@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NMUSA Event Temple Digital Signage</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="prototype-toolbar" aria-label="Prototype view selector">
+  <span class="label">Preview</span>
+  <button data-room="" class="active">Lobby / All Rooms</button>
+  <button data-room="101">Room 101</button>
+  <button data-room="203">Room 203</button>
+  <button data-room="307">Room 307</button>
+</div>
+<main class="signage-shell">
+<header class="topbar">
+  <div class="brand-block">
+    <div class="brand-mark"><img src="/assets/nmusa-logo.png" alt="National Museum of the United States Army logo"></div>
+    <div><p class="eyebrow">DIGITAL DIRECTORY</p><h1 id="screenTitle">Today's Meetings & Events</h1></div>
+  </div>
+  <div class="clock-block"><div id="clock">--:--</div><div id="dateLabel">Loading date…</div></div>
+</header>
+<section id="currentPanel" class="current-panel hidden">
+  <div class="status-pill">HAPPENING NOW</div>
+  <div class="current-copy"><h2 id="currentName"></h2><p><span id="currentTime"></span><span class="dot">•</span><span id="currentRoom"></span></p></div>
+</section>
+<div class="schedule-area">
+  <section class="schedule-section">
+    <div class="section-heading"><h2>Today's Schedule</h2><p id="filterLabel">All conference rooms</p></div>
+    <div id="tableCard" class="table-card">
+      <div class="schedule-row schedule-head"><div>Time</div><div>Meeting / Event</div><div>Location</div><div>Status</div></div>
+      <div id="scheduleRows"></div>
+    </div>
+    <div id="emptyState" class="empty-state hidden"><div class="empty-icon">✓</div><h3>No scheduled meetings today</h3><p>This room is currently available.</p></div>
+  </section>
+  <aside class="tomorrow-section">
+    <div class="section-heading"><h2>Tomorrow</h2><p>Preview</p></div>
+    <div id="tomorrowCard" class="tomorrow-card"><div id="tomorrowRows"></div></div>
+  </aside>
+</div>
+<footer><div><span id="liveDot" class="live-dot"></span><span id="connectionText">Loading schedule…</span></div><div id="lastUpdated">Last updated: --</div></footer>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
