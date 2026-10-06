@@ -220,10 +220,10 @@ h1 {
 
 .schedule-row {
     display: grid;
-    grid-template-columns: 1.25fr 3fr 2fr 1fr;
+    grid-template-columns: 1.55fr 3fr 1fr .5fr;
     gap: 1.4vw;
     align-items: center;
-    padding: 1.45vh 1.4vw;
+    padding: 1.45vh 1.3vw;
     border-bottom: 1px solid var(--line)
 }
 

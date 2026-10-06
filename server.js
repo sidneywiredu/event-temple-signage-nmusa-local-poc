@@ -64,7 +64,7 @@ function mockEvents(dateStr) {
     ['Exhibits Coordination Meeting', 'Conference Room 101', '101', 16, 12, 0, 13, 0],
     ['Leadership Sync Meeting', 'Conference Room 307', '307', 18, 14, 0, 15, 0],
     ['Visitor Services Coordination Meeting', 'Conference Room 307', '307', 10, 15, 0, 16, 0],
-    ['Facilities Project Review', 'Conference Room 203', '203', 8, 16, 15, 17, 0]
+    ['Facilities Project Review', 'Conference Room 203', '203', 8, 16, 0, 17, 0]
   ];
   return rows.map((r, i) => ({
     id: `mock-${dateStr}-${i + 1}`,
